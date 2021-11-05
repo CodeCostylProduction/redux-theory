@@ -15,7 +15,7 @@ export default function rootReducer(state = initialState, action ) {
             }
         case 'DOU':
             return {
-                counter: state.counter * 2
+                counter: state.counter * action.payload
             }
         default:
             return state
