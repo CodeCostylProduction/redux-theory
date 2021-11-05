@@ -10,8 +10,9 @@ import rootReducer from './redux/rootReducer'
 
 
 const loggerMiddleware = store => next => action => {
-    const result = next(action)
     console.log(store.getState())
+    const result = next(action)
+    console.log(store.getState(), result)
     return result
 
 }
