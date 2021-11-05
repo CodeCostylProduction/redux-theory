@@ -5,20 +5,20 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {applyMiddleware, createStore} from 'redux'
 import {Provider} from 'react-redux'
+import reduxThunk from 'redux-thunk'
 import rootReducer from './redux/rootReducer'
 
 
 
 const loggerMiddleware = store => next => action => {
-    console.log(store.getState())
     const result = next(action)
-    console.log(store.getState(), result)
+    console.log(store.getState())
     return result
 
 }
 
 
-const store = createStore(rootReducer, applyMiddleware(loggerMiddleware))
+const store = createStore(rootReducer, applyMiddleware(loggerMiddleware, reduxThunk))
 
 const app = (
     <Provider store={store}>

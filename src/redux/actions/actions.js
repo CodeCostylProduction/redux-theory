@@ -15,8 +15,16 @@ export function double(number) {
         type: DOU,
         payload: number
     }
-}export function add2() {
+}
+export function add2() {
     return {
         type: ADD2
+    }
+}
+export function asyncAdd(number) {
+    return (dispatch) => {
+        setTimeout(() => {
+            dispatch(double(number))
+        }, 3000)
     }
 }
